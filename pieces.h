@@ -8,38 +8,47 @@
 #include <iostream>
 
 enum condition {none, white, black};
+enum rows {A = 1, B, C, D, E, F, G, H};
 
 struct piece_cords
 {
     short x, y;
 };
 
-void show_cords();
+void show_cords(piece_cords any_piece);
+
 
 
 class piece
 {
-protected:
+public:
     short piece_color;
 
-public:
-    piece(short color_r);
-
+    static bool check_cords(piece_cords cords);
     virtual void move() = 0;
+
 };
+
 
 class pawn: public piece
 {
 public:
     std::string name = "Pawn";
-    piece_cords pi;
+    piece_cords pi_cords;
 
-public:
-    pawn();
-
-    void move() final;
-    bool check_cords;
+    void move() override;
 };
+
+
+//class rook: public piece
+//{
+//public:
+//    std::string name = "Rook";
+//    piece_cords pi_cords;
+//
+//public:
+//    void move(rook p);
+//};
 
 
 

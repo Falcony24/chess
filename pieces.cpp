@@ -4,27 +4,38 @@
 
 #include "pieces.h"
 
-template <typename t>
-t show_cords(t any_piece)
+void show_cords(piece_cords any_piece)
 {
     std::cout << "Wiersz: " << any_piece.x;
     std::cout << " Kolumna: " << any_piece.y << std::endl;
 }
 
-
-piece::piece(short color_r):
-piece_color(color_r)
+bool piece::check_cords(piece_cords cords)
 {
-    piece_color = color_r;
+    if(cords.x < 1 or cords.x > 8)
+    {
+        return false;
+    }
+
+    if(cords.y < 1 or cords.y > 8)
+    {
+        return false;
+    }
+
+    return true;
 }
 
 
-pawn::pawn():
-piece(none)
-{}
 
 void pawn::move()
 {
+    if(check_cords(pi_cords))
+    {
+        return;
+    }
 
-    pi.y++;
+    pi_cords.x ++;
 }
+
+
+

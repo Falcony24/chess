@@ -17,16 +17,21 @@ int main()
         }
     }
 
-//    for(int i = 0; i < 64; i++)
-//    {
-//        std::cout << "wiersz: " << board[i].sq.x << " kolumna: ";
-//        std::cout << board[i].sq.y << std::endl;
-//    }
+    for(int i = 0; i < 64; i++)
+    {
+        if(i % 8 == 0)
+        {
+            std::cout << std::endl;
+        }
+        std::cout << board[i].empty << "    ";
+    }
 
-    pawn p1;
-    p1.pi.x = 0;
-    p1.pi.y = 0;
-
+//    pawn p1;
+//    p1.pi_cords.x = 8;
+//    p1.pi_cords.y = 0;
+//    show_cords(p1.pi_cords);
+//    p1.move();
+//    show_cords(p1.pi_cords);
 
     return 0;
 }

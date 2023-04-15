@@ -67,6 +67,12 @@ build CMakeFiles/chess.dir/chessboard.cpp.obj: CXX_COMPILER__chess_Debug D$:/Git
   OBJECT_DIR = CMakeFiles\chess.dir
   OBJECT_FILE_DIR = CMakeFiles\chess.dir
 
+build CMakeFiles/chess.dir/settings.cpp.obj: CXX_COMPILER__chess_Debug D$:/GitHub/chess/settings.cpp || cmake_object_order_depends_target_chess
+  DEP_FILE = CMakeFiles\chess.dir\settings.cpp.obj.d
+  FLAGS = -g -std=gnu++23
+  OBJECT_DIR = CMakeFiles\chess.dir
+  OBJECT_FILE_DIR = CMakeFiles\chess.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target chess
@@ -75,7 +81,7 @@ build CMakeFiles/chess.dir/chessboard.cpp.obj: CXX_COMPILER__chess_Debug D$:/Git
 #############################################
 # Link the executable chess.exe
 
-build chess.exe: CXX_EXECUTABLE_LINKER__chess_Debug CMakeFiles/chess.dir/main.cpp.obj CMakeFiles/chess.dir/pieces.cpp.obj CMakeFiles/chess.dir/chessboard.cpp.obj
+build chess.exe: CXX_EXECUTABLE_LINKER__chess_Debug CMakeFiles/chess.dir/main.cpp.obj CMakeFiles/chess.dir/pieces.cpp.obj CMakeFiles/chess.dir/chessboard.cpp.obj CMakeFiles/chess.dir/settings.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\chess.dir
