@@ -4,38 +4,25 @@
 
 #include "pieces.h"
 
-void show_cords(piece_cords any_piece)
+pieces::pieces(std::string name_, colors piece_color_):
+name(name_), piece_color(piece_color_)
+{}
+
+pawn::pawn(colors color_):
+pieces("Pawn", color_)
+{}
+
+rook::rook(colors color_):
+pieces("Rook", color_)
 {
-    std::cout << "Wiersz: " << any_piece.x;
-    std::cout << " Kolumna: " << any_piece.y << std::endl;
+
 }
 
-bool piece::check_cords(piece_cords cords)
+chessset::chessset()
 {
-    if(cords.x < 1 or cords.x > 8)
+    for(int i = 0; i < 4; i++)
     {
-        return false;
+        set[0][i] = new class pawn(BLACK);
+        set[1][i] = new class rook(WHITE);
     }
-
-    if(cords.y < 1 or cords.y > 8)
-    {
-        return false;
-    }
-
-    return true;
 }
-
-
-
-void pawn::move()
-{
-    if(check_cords(pi_cords))
-    {
-        return;
-    }
-
-    pi_cords.x ++;
-}
-
-
-

@@ -6,52 +6,44 @@
 #define CHESS_PIECES_H
 
 #include <iostream>
+#include "settings.h"
+#include "chessboard.h"
 
-enum condition {none, white, black};
-enum rows {A = 1, B, C, D, E, F, G, H};
-
-struct piece_cords
-{
-    short x, y;
-};
-
-void show_cords(piece_cords any_piece);
-
-
-
-class piece
+class pieces
 {
 public:
-    short piece_color;
+    pieces(std::string name_, colors piece_color_);
 
-    static bool check_cords(piece_cords cords);
-    virtual void move() = 0;
+    colors piece_color;
+    cords pi_cords;
+    std::string name;
 
+    colors is_empty(cords destination);
+
+//    virtual void move() = 0;
 };
 
 
-class pawn: public piece
+class pawn: public pieces
 {
 public:
-    std::string name = "Pawn";
-    piece_cords pi_cords;
+    pawn(colors color_);
 
-    void move() override;
+//    virtual void move() final;
 };
 
+class rook: public pieces
+{
+public:
+    rook(colors color_);
+};
 
-//class rook: public piece
-//{
-//public:
-//    std::string name = "Rook";
-//    piece_cords pi_cords;
-//
-//public:
-//    void move(rook p);
-//};
-
-
-
+class chessset
+{
+public:
+    pieces * set[1][4];
+    chessset();
+};
 
 
 #endif //CHESS_PIECES_H

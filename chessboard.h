@@ -5,22 +5,33 @@
 #ifndef CHESS_CHESSBOARD_H
 #define CHESS_CHESSBOARD_H
 
-struct square_cords
-{
-    short x,y;
-};
+#include "settings.h"
+#include "pieces.h"
+
+class pieces;
 
 class square
 {
 public:
-    bool empty;
-    square_cords sq;
+    pieces * piece;
 
+    colors empty;
+    cords sq_cords;
+
+    square();
+
+    void place_piece(pieces * piece_);
+};
+
+class chessboard
+{
 public:
-    square(short row_x = 0, short column_y = 0, bool empty_y = 0);
+    square ** board;
 
-    bool get_empty();
-    void set_empty(bool empty_y);
+    const unsigned short lines, columns;
+
+    chessboard(unsigned short lines_, unsigned short columns_);
+    ~chessboard();
 };
 
 

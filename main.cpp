@@ -2,36 +2,26 @@
 #include "pieces.h"
 #include "chessboard.h"
 
+using namespace std;
+
+
+
 int main()
 {
-    square * board;
-    board = new square[64];
-    int a = 0;
 
-    for(int i = 1; i <= 8; i++)
+    chessboard a(8, 8);
+
+    for(int i = 0; i < a.lines; i++)
     {
-        for(int j = 1; j <= 8; j++)
+        for(int j = 0; j < a.columns; j++)
         {
-            board[a] = square( i, j);
-            a++;
+            cout << "Wiersze: " << a.board[i][j].sq_cords.y << "    Kolumny: " << a.board[i][j].sq_cords.x << endl;
         }
     }
+    chessset sa;
 
-    for(int i = 0; i < 64; i++)
-    {
-        if(i % 8 == 0)
-        {
-            std::cout << std::endl;
-        }
-        std::cout << board[i].empty << "    ";
-    }
-
-//    pawn p1;
-//    p1.pi_cords.x = 8;
-//    p1.pi_cords.y = 0;
-//    show_cords(p1.pi_cords);
-//    p1.move();
-//    show_cords(p1.pi_cords);
+//    std::cout << a.board[0][0].empty;
+//    sa.set[0][0]->name;
 
     return 0;
 }

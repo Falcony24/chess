@@ -4,19 +4,46 @@
 
 #include "chessboard.h"
 
-square::square(short row_x, short column_y, bool empty_y):
-empty(empty_y)
+square::square()
 {
-    sq.x = row_x;
-    sq.y = column_y;
+    empty = NONE;
 }
 
-bool square::get_empty()
+void square::place_piece(pieces * piece_)
 {
-    return empty;
+    if(!empty)
+    {
+        piece = piece_;
+        empty = piece_->piece_color;
+    }
 }
 
-void square::set_empty(bool empty_y)
+chessboard::chessboard(unsigned short lines_, unsigned short columns_):
+lines(lines_), columns(columns_)
 {
-    empty = empty_y;
+    board = new class square * [lines_];
+
+    for(unsigned int i = 0; i < lines_; i++)
+    {
+        board[i] = new class square[columns_];
+    }
+
+    for(int i = 0; i < lines_; i++)
+    {
+        for(int j = 0; j < columns_; j++)
+        {
+            board[i][j].sq_cords.x = j;
+            board[i][j].sq_cords.y = i;
+        }
+    }
+}
+
+chessboard::~chessboard()
+{
+    for(unsigned int i = 0; i < lines; i++)
+    {
+        delete [] board[i];
+    }
+
+    delete [] board;
 }
